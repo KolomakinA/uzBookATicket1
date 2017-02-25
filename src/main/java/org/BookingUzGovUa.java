@@ -120,9 +120,9 @@ public class BookingUzGovUa {
                     System.out.println("There are no free places in this train, go to the next one");
                     System.exit(1);
                 }
-                trainShowPlaces2.click();
+                else trainShowPlaces2.click();
             }
-            trainShowPlaces.click();
+            else trainShowPlaces.click();
         } catch (NoSuchElementException e){}
     }
 
