@@ -8,7 +8,7 @@ import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by kolom on 26.02.2017.
+ * Created by Andrii Kolomakin on 26.02.2017.
  */
 public class TestClass {
 

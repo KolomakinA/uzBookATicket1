@@ -1,11 +1,9 @@
 package org;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 /**
  * Created by Andrii Kolomakin on 25.02.2017.
@@ -42,9 +40,9 @@ public class BookingUzGovUa {
     private WebElement placeTypeFreePlacesCounter;
     @FindBy(xpath = "//div[@id='ts_res']//table/tbody/tr[1]/td[@class='place']/div[1]/button")
     private WebElement trainShowPlaces;
-    @FindBy(xpath = "//div[@id='ts_res']//table/tbody/tr[1]/td[@class='place']/div[1]/b[1]")
+    @FindBy(xpath = "//div[@id='ts_res']//table/tbody/tr[1]/td[@class='place']/div[2]/b[1]")
     private WebElement placeTypeFreePlacesCounter2;
-    @FindBy(xpath = "//div[@id='ts_res']//table/tbody/tr[1]/td[@class='place']/div[1]/button")
+    @FindBy(xpath = "//div[@id='ts_res']//table/tbody/tr[1]/td[@class='place']/div[2]/button")
     private WebElement trainShowPlaces2;
 
     private WebElement freePlace;
