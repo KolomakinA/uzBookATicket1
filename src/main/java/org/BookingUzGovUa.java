@@ -45,20 +45,29 @@ public class BookingUzGovUa {
     @FindBy(xpath = "//div[@id='ts_res']//table/tbody/tr[1]/td[@class='place']/div[2]/button")
     private WebElement trainShowPlaces2;
 
+    @FindBy(xpath = "//div[@class='vToolsPopup coachScheme']//div[@class='floor floor-1']/div[@class='up place fr']")
     private WebElement freePlace;
-    private WebElement occPalce;
 
-    private WebElement passangerFNameInout;
+    @FindBy(xpath = "//div[@class='fio']//input[@class='firstname']")
+    private WebElement passangerFNameInput;
+    @FindBy(xpath = "//div[@class='fio']//input[@class='lastname']")
     private WebElement passangerLNameInput;
-
+    @FindBy(xpath = "//button[@class='complex_btn']/span")
     private WebElement toCartButton;
 
+    @FindBy(xpath = "//table[@id='cart_table']//td[@class='data']/div/b[1]")
     private WebElement trainNumber;
+    @FindBy(xpath = "//table[@id='cart_table']//td[@class='data']/div/b[2]")
     private WebElement wagonNumber;
+    @FindBy(xpath = "//table[@id='cart_table']//td[@class='data']/div/b[3]")
     private WebElement placeNumber;
+    @FindBy(xpath = "//table[@id='cart_table']//td[@class='price']")
     private WebElement price;
 
+    @FindBy(xpath = "//table[@id='cart_table']//td[@class='cart-btn']/a")
     private WebElement cancelOrederButton;
+    @FindBy(xpath = "//div[@class='vToolsPopup ']/center[@class='vToolsPopupToolbar']/button[1]")
+    private WebElement cancelingConfirmationOk;
 
     //-----------------------------------------------------------------------------------------------------------
 
@@ -70,23 +79,23 @@ public class BookingUzGovUa {
         return driver.getTitle();
     }
 
-    void setFromStation(){
+    void setFromStation(String from){
         stationFromInputField.clear();
-        stationFromInputField.sendKeys("Київ");
+        stationFromInputField.sendKeys(from);
         stationFromInputField.click();
         stationFromAutosuggestion.click();
     }
 
-    void setTillStation(){
+    void setTillStation(String till){
         stationTillInputField.clear();
-        stationTillInputField.sendKeys("Жмеринка-Пас.");
+        stationTillInputField.sendKeys(till);
         stationTillInputField.click();
         stationTillAutosuggestion.click();
     }
 
-    void setDepDate(WebDriver driver){
+    void setDepDate(WebDriver driver, String date){
         departureDateInputField.clear();
-        departureDateInputField.sendKeys("16.03.2017");
+        departureDateInputField.sendKeys(date);
         pageBody.click();
         synchronized (driver){
             try {
@@ -124,6 +133,30 @@ public class BookingUzGovUa {
             }
             else trainShowPlaces.click();
         } catch (NoSuchElementException e){}
+    }
+
+    void selectAFreePlace(){
+        freePlace.click();
+    }
+
+    void enterFioAndSubmit(String lName, String fName){
+        passangerLNameInput.sendKeys(lName);
+        passangerFNameInput.sendKeys(fName);
+        toCartButton.click();
+    }
+
+    String[] getTicketData(){
+        String[] arr = {trainNumber.getText(),wagonNumber.getText(),placeNumber.getText(),price.getText()};
+        return arr;
+    }
+
+    void cancelOrder(){
+        cancelOrederButton.click();
+        cancelingConfirmationOk.click();
+    }
+
+    void closeBrowser(WebDriver driver){
+        driver.quit();
     }
 
 }
