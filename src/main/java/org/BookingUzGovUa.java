@@ -99,11 +99,11 @@ public class BookingUzGovUa {
         departureDateInputField.clear();
         departureDateInputField.sendKeys(date);
         pageBody.click();
-        synchronized (driver){
-            try {
-                driver.wait(1000);
-            } catch (InterruptedException e) {}
-        }
+//        synchronized (driver){
+//            try {
+//                driver.wait(1000);
+//            } catch (InterruptedException e) {}
+//        }
     }
 
     void searchForTrain(){
@@ -111,11 +111,11 @@ public class BookingUzGovUa {
     }
 
     boolean checkIfThereAreTrains(WebDriver driver){
-        synchronized (driver){
-            try {
-                driver.wait(3000);
-            } catch (InterruptedException e) {}
-        }
+//        synchronized (driver){
+//            try {
+//                driver.wait(3000);
+//            } catch (InterruptedException e) {}
+//        }
         try{
             noTrainsErrorMessage.isDisplayed();
             return true;
