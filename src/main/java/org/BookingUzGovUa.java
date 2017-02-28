@@ -16,18 +16,18 @@ public class BookingUzGovUa {
 
     @FindBy(xpath = "//div[@class='stations']/div[@id='station_from']/input")
     private WebElement stationFromInputField;
-    @FindBy(xpath = "//div[@class='stations']/div[@id='station_from']/div[@class='autosuggest']/div[@title='Київ']")
+    @FindBy(xpath = "//div[@class='stations']/div[@id='station_from']/div[@class='autosuggest']//li[1]")
     private WebElement stationFromAutosuggestion;
 
     @FindBy(xpath = "//div[@class='stations']/div[@id='station_till']/input")
     private WebElement stationTillInputField;
-    @FindBy(xpath = "//div[@class='stations']/div[@id='station_till']/div[@class='autosuggest']/div[@title='Жмеринка-Пас.']")
+    @FindBy(xpath = "//div[@class='stations']/div[@id='station_till']/div[@class='autosuggest']//li[1]")
     private WebElement stationTillAutosuggestion;
 
     @FindBy(xpath = "//form[@name='train_search_form']//div[@class='options']//input[@id='date_dep']")
     private WebElement departureDateInputField;
 
-    @FindBy(xpath = "//div[@id='middle']/div[1]")
+    @FindBy(xpath = "//div[@class='main-news'][1]")
     private WebElement pageBody;
 
     @FindBy(xpath = "//form[@name='train_search_form']//button[@name='search']")
@@ -64,6 +64,8 @@ public class BookingUzGovUa {
     @FindBy(xpath = "//table[@id='cart_table']//td[@class='price']")
     private WebElement price;
 
+    @FindBy(xpath = "//table[@id='cart_table']//td[@class='cart-btn']")
+    private WebElement cancelOrderRow;
     @FindBy(xpath = "//table[@id='cart_table']//td[@class='cart-btn']/a")
     private WebElement cancelOrederButton;
     @FindBy(xpath = "//div[@class='vToolsPopup ']/center[@class='vToolsPopupToolbar']/button[1]")
@@ -151,6 +153,7 @@ public class BookingUzGovUa {
     }
 
     void cancelOrder(){
+        cancelOrderRow.click();
         cancelOrederButton.click();
         cancelingConfirmationOk.click();
     }

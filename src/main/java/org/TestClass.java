@@ -21,7 +21,7 @@ public class TestClass {
         WebDriver driver = new ChromeDriver();
         driver.get("http://booking.uz.gov.ua/");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         BookingUzGovUa book = PageFactory.initElements(driver, BookingUzGovUa.class);
         //-----------------------------------
         book.setUkrVersion();
